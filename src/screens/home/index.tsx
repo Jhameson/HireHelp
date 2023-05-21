@@ -2,15 +2,17 @@ import React from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { Button, StyleSheet, Text, View } from 'react-native'
 
-export default function Home({ navigation }: any): JSX.Element {
+import { useNavigation } from '@react-navigation/native'
+
+export default function Home(): JSX.Element {
+  const navigation = useNavigation()
+
+  const handleClick = () => navigation.navigate('Profile')
+
   return (
     <View style={styles.container}>
-      <StatusBar style="light" />
+      <StatusBar style="auto" />
       <Text>Tela de login </Text>
-      <Button
-        title="Algo"
-        onPress={() => navigation.navigate('Profile')}
-      ></Button>
     </View>
   )
 }
@@ -18,7 +20,7 @@ export default function Home({ navigation }: any): JSX.Element {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ff0000',
+    backgroundColor: '#CF7400',
     alignItems: 'center',
     justifyContent: 'center',
   },

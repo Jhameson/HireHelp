@@ -1,40 +1,12 @@
 import 'react-native-gesture-handler'
-import React from 'react'
-import { StatusBar } from 'expo-status-bar'
-import { Text, View } from 'react-native'
-import Home from './src/screens/home'
 
-import Profile from './src/screens/profile'
-import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
+import { AppRegistry } from 'react-native'
 
-const Stack = createStackNavigator()
+import { expo as appName } from './app.json'
+import { Routes } from './src/routes'
 
-function StackApp(): JSX.Element {
-  return (
-    <Stack.Navigator
-      screenOptions={{
-        headerMode: 'screen',
-        headerTintColor: 'white',
-        headerStyle: { backgroundColor: 'black' },
-      }}
-    >
-      <Stack.Screen
-        name="Home"
-        component={Home}
-        options={{
-          title: 'Awesome app',
-        }}
-      />
-      <Stack.Screen name="Profile" component={Profile} />
-    </Stack.Navigator>
-  )
-}
+AppRegistry.registerComponent(appName.name, () => App)
 
 export default function App(): JSX.Element {
-  return (
-    <NavigationContainer>
-      <StackApp />
-    </NavigationContainer>
-  )
+  return <Routes />
 }
