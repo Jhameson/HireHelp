@@ -3,6 +3,7 @@ import Home from '../screens/home'
 
 import { MaterialIcons } from '@expo/vector-icons'
 import Profile from '../screens/profile'
+import { StackRoutes } from './stack.routes'
 
 const { Navigator, Screen } = createDrawerNavigator()
 
@@ -11,7 +12,7 @@ export function DrawerRoutes(): JSX.Element {
     <Navigator screenOptions={{}}>
       <Screen
         name="Home"
-        component={Home}
+        component={StackRoutes}
         options={{
           drawerLabel: 'Início',
           title: 'Hire Help',

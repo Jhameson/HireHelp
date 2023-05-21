@@ -1,25 +1,34 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import {
+  Alert,
+  Button,
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native'
 
 const DATA = [
   {
     id: '1',
-    title: 'First Item',
+    title: 'Babá',
   },
   {
     id: '2',
-    title: 'Second Item',
+    title: 'Eletricista',
   },
   {
     id: '3',
-    title: 'a Item',
+    title: 'Carpiteiro',
   },
   {
     id: '4',
-    title: 'Third Item',
+    title: 'Soldador',
   },
   {
     id: '5',
-    title: 'a Item',
+    title: 'Limpeza',
   },
   {
     id: '6',
@@ -45,11 +54,20 @@ const List = () => {
   )
 }
 
-const Item = ({ title }: ItemProps) => (
-  <View style={styles.item}>
-    <Text style={styles.title}>{title}</Text>
-  </View>
-)
+const Item = ({ title }: ItemProps) => {
+  const navigation = useNavigation()
+  const handleItemClick = (title: string) => {
+    navigation.navigate('Service')
+  }
+  return (
+    <TouchableOpacity
+      style={styles.item}
+      onPress={() => handleItemClick(title)}
+    >
+      <Text style={styles.title}>{title}</Text>
+    </TouchableOpacity>
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
