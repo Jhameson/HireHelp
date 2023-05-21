@@ -26,6 +26,9 @@ export function DrawerRoutes(): JSX.Element {
         component={Profile}
         options={{
           title: 'Perfil',
+          headerStyle: {
+            backgroundColor: '#2CAAB8',
+          },
           drawerIcon: () => (
             <MaterialIcons
               name="admin-panel-settings"
