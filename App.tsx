@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler'
 
-import { AppRegistry } from 'react-native'
+import { AppRegistry, SafeAreaView } from 'react-native'
 
 import { expo as appName } from './app.json'
 import { Routes } from './src/routes'
