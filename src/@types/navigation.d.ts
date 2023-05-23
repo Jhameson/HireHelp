@@ -4,6 +4,7 @@ export declare global {
       Home: undefined
       Profile: undefined
       Service: undefined
+      Welcome: undefined
     }
   }
 }
