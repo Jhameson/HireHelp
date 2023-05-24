@@ -27,6 +27,17 @@ export function StackRoutes(): JSX.Element {
           // drawerIcon: () => <MaterialIcons name="home" size={25} />,
         }}
       />
+      <Screen
+        name="Service"
+        component={Service}
+        options={{
+          title: 'Serviço',
+          headerStyle: {
+            backgroundColor: '#62BAAC',
+          },
+          // drawerIcon: () => <MaterialIcons name="home" size={25} />,
+        }}
+      />
     </Navigator>
   )
 }

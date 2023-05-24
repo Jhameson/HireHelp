@@ -56,14 +56,10 @@ const List = () => {
 
 const Item = ({ title }: ItemProps) => {
   const navigation = useNavigation()
-  const handleItemClick = (title: string) => {
-    navigation.navigate('Service')
-  }
+  const handleItemClick = () => navigation.navigate('Service')
+
   return (
-    <TouchableOpacity
-      style={styles.item}
-      onPress={() => handleItemClick(title)}
-    >
+    <TouchableOpacity style={styles.item} onPress={handleItemClick}>
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   )
