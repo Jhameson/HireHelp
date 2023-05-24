@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
+import { StatusBar } from 'expo-status-bar'
 import {
-  Button,
   Image,
   StyleSheet,
   Text,
@@ -9,6 +9,8 @@ import {
   View,
 } from 'react-native'
 
+import * as Animatable from 'react-native-animatable'
+
 export default function Welcome(): JSX.Element {
   const navigation = useNavigation()
   const handleItemClick = () => {
@@ -16,23 +18,29 @@ export default function Welcome(): JSX.Element {
   }
   return (
     <View style={styles.container}>
+      <StatusBar backgroundColor="#62BAAC" />
       <View style={styles.containerLogo}>
-        <Image
+        <Animatable.Image
+          animation="flipInY"
           source={require('../../_assets/imgs/Logo.png')}
           style={{ width: '100%' }}
           resizeMode="contain"
         />
       </View>
-      <View style={styles.containerForm}>
+      <Animatable.View
+        style={styles.containerForm}
+        delay={600}
+        animation="fadeInUp"
+      >
         <Text style={styles.title}>Precisando de ajuda?</Text>
         <Text style={styles.text}>
           Selecione a sua cidade e encontre os serviços disponíveis
         </Text>
-        {/* <TextInput style={styles.input}></TextInput> */}
-        <TouchableOpacity style={styles.button}>
+        <TextInput style={styles.input} placeholder="Fortaleza, CE" />
+        <TouchableOpacity style={styles.button} onPress={handleItemClick}>
           <Text style={styles.buttonText}>Pesquisar</Text>
         </TouchableOpacity>
-      </View>
+      </Animatable.View>
     </View>
   )
 }
@@ -59,24 +67,27 @@ const styles = StyleSheet.create({
   text: {
     color: '#a1a1a1',
   },
-  button: {
-    position: 'absolute',
-    backgroundColor: '#62BAAC',
-    borderRadius: 50,
-    paddingVertical: 8,
-    width: '60%',
-    alignSelf: 'center',
-    bottom: '15%',
-    alignItems: 'center',
-  },
+
   buttonText: {
     color: '#fff',
     fontSize: 18,
   },
   input: {
-    // borderWidth: 1,
-    // paddingVertical: 10,
-    // paddingHorizontal: 10,
-    // borderRadius: 20,
+    borderWidth: 1,
+    borderColor: '#cacaca',
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    borderRadius: 20,
+    marginTop: 40,
+    fontSize: 20,
+  },
+  button: {
+    backgroundColor: '#62BAAC',
+    borderRadius: 50,
+    paddingVertical: 8,
+    paddingHorizontal: 15,
+    alignSelf: 'center',
+    alignItems: 'center',
+    marginTop: 10,
   },
 })

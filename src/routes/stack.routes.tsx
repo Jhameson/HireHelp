@@ -8,7 +8,12 @@ const { Navigator, Screen } = createStackNavigator()
 
 export function StackRoutes(): JSX.Element {
   return (
-    <Navigator screenOptions={{}}>
+    <Navigator
+      screenOptions={{
+        gestureEnabled: true,
+        headerMode: 'float',
+      }}
+    >
       <Screen
         name="Welcome"
         component={Welcome}
@@ -24,7 +29,6 @@ export function StackRoutes(): JSX.Element {
           headerStyle: {
             backgroundColor: '#62BAAC',
           },
-          // drawerIcon: () => <MaterialIcons name="home" size={25} />,
         }}
       />
       <Screen
@@ -33,7 +37,7 @@ export function StackRoutes(): JSX.Element {
         options={{
           title: 'Serviço',
           headerStyle: {
-            backgroundColor: '#62BAAC',
+            backgroundColor: '#FFA17A',
           },
           // drawerIcon: () => <MaterialIcons name="home" size={25} />,
         }}
